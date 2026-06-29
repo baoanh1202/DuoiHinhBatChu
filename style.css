@@ -195,18 +195,15 @@ body.is-start {
 .game.is-start {
     width: 90%;
     max-width: 850px;
-    /* Khống chế độ rộng vừa vặn hoàn hảo trên PC */
     background: none;
-    /* Bỏ khung nền trắng bao quanh */
     box-shadow: none;
-    /* Bỏ đổ bóng thô */
     padding: 0;
     margin: 0;
     position: relative;
 }
 
 
-/* Ẩn triệt để các chữ tiêu đề ở trang đầu */
+/* Ẩn các chữ tiêu đề ở trang đầu */
 
 .game.is-start h1,
 .game.is-start #questionTitle,
@@ -227,20 +224,23 @@ body.is-start {
     width: 100%;
     height: auto;
     object-fit: contain;
-    /* Đảm bảo ảnh không bao giờ bị cắt hay mất chữ */
     border: none;
     border-radius: 24px;
-    /* Bo góc mềm mại cho bức ảnh giới thiệu */
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 
-/* ĐỊNH VỊ NÚT BẤM KHỚP THEO TỈ LỆ % CỦA ẢNH */
+/* 
+   ==================================================================
+   👉 ĐOẠN SỬA VỊ TRÍ NÚT BẤM (DỜI LÊN TRÊN CHO HÀI HÒA VỚI ẢNH) 
+   ==================================================================
+*/
 
 .game.is-start .actions {
     position: absolute;
-    bottom: 7%;
-    /* Giữ khoảng cách chuẩn đè lên khu vực đám mây bên dưới */
+    /* CHỈNH SỬA: Đổi từ 7% lên 14% để đẩy nút lên cao một chút, 
+       giúp nút nằm cân đối hoàn hảo trong khoảng mây trống của ảnh image_daa919.jpg */
+    bottom: 25%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 99;
