@@ -6,7 +6,17 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    transition: background 0.3s ease;
 }
+
+
+/* ========================================== */
+
+
+/* --- CẤU HÌNH KHUNG GAME KHI ĐANG CHƠI --- */
+
+
+/* ========================================== */
 
 .game {
     width: 750px;
@@ -15,6 +25,8 @@ body {
     padding: 30px;
     text-align: center;
     box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 h1 {
@@ -34,20 +46,17 @@ h2 {
 }
 
 
-/* Tìm đoạn này trong file style.css của bạn và sửa lại như sau: */
+/* Định dạng ảnh câu hỏi lúc chơi - không bị cắt chữ */
 
 .images img {
     max-width: 100%;
-    /* Đảm bảo ảnh không bị tràn ra ngoài khung trắng */
     width: 500px;
-    /* Tăng kích thước chiều rộng lên để nhìn rõ chữ hơn */
     height: auto;
-    /* Để chiều cao tự động co giãn theo tỷ lệ chuẩn của ảnh gốc */
     object-fit: contain;
-    /* Giữ nguyên vẹn toàn bộ bức ảnh, không bao giờ bị cắt xén */
     border-radius: 20px;
     border: 6px solid #ffeaa7;
     box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+    transition: all 0.3s ease;
 }
 
 #answerBoxes {
@@ -162,4 +171,92 @@ button:hover {
     100% {
         transform: translateX(-5px);
     }
+}
+
+
+/* ================================================================= */
+
+
+/* --- GIAO DIỆN MÀN HÌNH CHÀO VỪA VẶN, KHÔNG BỊ PHÓNG QUÁ TO --- */
+
+
+/* ================================================================= */
+
+
+/* Thay thế hoàn toàn nền tím bằng nền xanh trời khớp viền ảnh giới thiệu */
+
+body.is-start {
+    background: #50b3ff;
+}
+
+
+/* Đưa khung game về kích thước chuẩn đẹp, bỏ nền trắng thô */
+
+.game.is-start {
+    width: 90%;
+    max-width: 850px;
+    /* Khống chế độ rộng vừa vặn hoàn hảo trên PC */
+    background: none;
+    /* Bỏ khung nền trắng bao quanh */
+    box-shadow: none;
+    /* Bỏ đổ bóng thô */
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+
+/* Ẩn triệt để các chữ tiêu đề ở trang đầu */
+
+.game.is-start h1,
+.game.is-start #questionTitle,
+.game.is-start #answerBoxes,
+.game.is-start #result {
+    display: none;
+}
+
+.game.is-start .images {
+    margin: 0;
+    width: 100%;
+}
+
+
+/* Định dạng ảnh giới thiệu hiển thị nguyên vẹn 100%, bo góc tinh tế */
+
+.game.is-start .images img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Đảm bảo ảnh không bao giờ bị cắt hay mất chữ */
+    border: none;
+    border-radius: 24px;
+    /* Bo góc mềm mại cho bức ảnh giới thiệu */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ĐỊNH VỊ NÚT BẤM KHỚP THEO TỈ LỆ % CỦA ẢNH */
+
+.game.is-start .actions {
+    position: absolute;
+    bottom: 7%;
+    /* Giữ khoảng cách chuẩn đè lên khu vực đám mây bên dưới */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    width: 100%;
+}
+
+
+/* Thiết kế nút bấm chuẩn xanh dương đậm cao cấp */
+
+.game.is-start #startBtn {
+    background: linear-gradient(180deg, #3fa1f2, #1066cc);
+    border: 2px solid #ffffff;
+    padding: 12px 36px;
+    font-size: 19px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(16, 102, 204, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
 }

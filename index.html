@@ -14,20 +14,22 @@
         <h1>ĐUỔI HÌNH BẮT CHỮ</h1>
 
         <div class="images">
-            <!-- Chỉ dùng 1 ảnh duy nhất, thay đổi linh hoạt bằng JS -->
-            <img id="gameImage" src="" alt="Hình ảnh câu hỏi">
+            <!-- Ảnh câu hỏi và ảnh nền mở màn -->
+            <img id="gameImage" src="src/batdau.png" alt="Hình ảnh câu hỏi">
         </div>
 
-        <h2 id="questionTitle">Câu hỏi số 1</h2>
+        <h2 id="questionTitle">SẴN SÀNG CHƯA?</h2>
 
         <!-- Khu vực hiển thị các ô chữ -->
         <div id="answerBoxes"></div>
 
-        <!-- Input thật được ẩn đi nhưng dùng để hứng bộ gõ tiếng Việt -->
+        <!-- Input ẩn dùng để nhận dữ liệu từ bàn phím -->
         <input id="hiddenInput" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 
         <div class="actions">
-            <button id="checkBtn">Kiểm Tra</button>
+            <!-- Hệ thống nút điều khiển -->
+            <button id="startBtn">Bắt Đầu Trò Chơi ➔</button>
+            <button id="checkBtn" style="display: none;">Kiểm Tra</button>
             <button id="nextBtn" style="display: none;">Câu Tiếp Theo ➔</button>
         </div>
 
