@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game {
+    width: 750px;
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+}
+
+h1 {
+    color: #0984e3;
+    font-size: 40px;
+    margin-top: 0;
+}
+
+h2 {
+    color: #2d3436;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.images img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 6px solid #ffeaa7;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+}
+
+
+/* Khu vực chứa các ô chữ */
+
+#answerBoxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+    cursor: text;
+    /* Tạo cảm giác nhấn vào là gõ được */
+}
+
+
+/* Các ô chữ hiển thị (chuyển sang div thay vì input để tránh lỗi focus) */
+
+.letter-box {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #74b9ff;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    background: white;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+
+/* Ô đang active gõ */
+
+.letter-box.active {
+    border-color: #00cec9;
+    box-shadow: 0 0 12px rgba(0, 206, 201, .5);
+    transform: scale(1.05);
+}
+
+
+/* Ô đã có chữ */
+
+.letter-box.filled {
+    background: #eef8ff;
+}
+
+.space {
+    width: 25px;
+}
+
+
+/* Giấu input thật một cách an toàn để vẫn nhận focus trên mobile */
+
+#hiddenInput {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0;
+}
+
+button {
+    padding: 14px 28px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #00b894, #55efc4);
+    color: white;
+    transition: .25s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    min-height: 38px;
+}
+
+.success {
+    color: #00b894;
+    animation: correct .5s infinite alternate;
+}
+
+.error {
+    color: #e74c3c;
+    animation: wrong .2s 3;
+}
+
+@keyframes correct {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes wrong {
+    0% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(-5px);
+    }
+}
