@@ -14,11 +14,11 @@
         <h1>ĐUỔI HÌNH BẮT CHỮ</h1>
 
         <div class="images">
-            <img src="src/hama.png" alt="Ảnh 1">
-            <img src="src/banoi.png" alt="Ảnh 2">
+            <!-- Chỉ dùng 1 ảnh duy nhất, thay đổi linh hoạt bằng JS -->
+            <img id="gameImage" src="" alt="Hình ảnh câu hỏi">
         </div>
 
-        <h2>Điền đáp án</h2>
+        <h2 id="questionTitle">Câu hỏi số 1</h2>
 
         <!-- Khu vực hiển thị các ô chữ -->
         <div id="answerBoxes"></div>
@@ -26,7 +26,10 @@
         <!-- Input thật được ẩn đi nhưng dùng để hứng bộ gõ tiếng Việt -->
         <input id="hiddenInput" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 
-        <button id="checkBtn">Kiểm Tra</button>
+        <div class="actions">
+            <button id="checkBtn">Kiểm Tra</button>
+            <button id="nextBtn" style="display: none;">Câu Tiếp Theo ➔</button>
+        </div>
 
         <p id="result"></p>
     </div>
