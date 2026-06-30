@@ -7,6 +7,12 @@ const questionList = [
     { answer: "Đồng Nai", image: "src/dongnai.png" }
 ];
 
+// ==================================================================
+// 👉 VỊ TRÍ 1: KHAI BÁO ÂM THANH (Bạn hãy thay đường dẫn file vào đây)
+// ==================================================================
+const correctSound = new Audio('src/dung.mp3'); // Thay 'src/dung.mp3' thành file âm thanh ĐÚNG của bạn
+const wrongSound = new Audio('src/sai.mp3'); // Thay 'src/sai.mp3' thành file âm thanh SAI của bạn
+
 let currentIndex = 0;
 let letterBoxElements = [];
 let cleanAnswer = "";
@@ -129,6 +135,12 @@ function checkAnswer() {
     resultDisplay.classList.remove("success", "error");
 
     if (userValue === correctValueWithTone || userValue === correctValueNoTone) {
+        // ==================================================================
+        // 👉 VỊ TRÍ 2A: PHÁT ÂM THANH KHI TRẢ LỜI ĐÚNG
+        // ==================================================================
+        correctSound.currentTime = 0; // Tua nhanh về đầu để bấm liên tục không bị ngắt quãng
+        correctSound.play().catch(err => console.log("Chưa tương tác với trang: ", err));
+
         let boxIndex = 0;
         for (let char of currentQuestion.answer) {
             if (char !== " ") {
@@ -144,8 +156,8 @@ function checkAnswer() {
         if (currentIndex === questionList.length - 1) {
             checkBtn.style.display = "none";
             nextBtn.style.display = "none";
-            questionTitle.textContent = "HẾT";
-            resultDisplay.innerHTML = "🎉 Chính xác! Chúc mừng bạn!";
+            questionTitle.textContent = "CHIẾN THẮNG!";
+            resultDisplay.innerHTML = "🏆 Xuất sắc! Bạn đã phá đảo trò chơi!";
             resultDisplay.classList.add("success");
         } else {
             checkBtn.style.display = "none";
@@ -154,6 +166,12 @@ function checkAnswer() {
             resultDisplay.classList.add("success");
         }
     } else {
+        // ==================================================================
+        // 👉 VỊ TRÍ 2B: PHÁT ÂM THANH KHI TRẢ LỜI SAI
+        // ==================================================================
+        wrongSound.currentTime = 0; // Tua nhanh về đầu để bấm liên tục không bị ngắt quãng
+        wrongSound.play().catch(err => console.log("Chưa tương tác với trang: ", err));
+
         resultDisplay.innerHTML = "❌ Sai rồi! Thử lại nhé!";
         resultDisplay.classList.add("error");
     }
