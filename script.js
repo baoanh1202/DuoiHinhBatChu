@@ -156,8 +156,8 @@ function checkAnswer() {
         if (currentIndex === questionList.length - 1) {
             checkBtn.style.display = "none";
             nextBtn.style.display = "none";
-            questionTitle.textContent = "CHIẾN THẮNG!";
-            resultDisplay.innerHTML = "🏆 Xuất sắc! Bạn đã phá đảo trò chơi!";
+            questionTitle.textContent = "HẾT";
+            resultDisplay.innerHTML = "🎉 Chính xác! Chúc mừng bạn!";
             resultDisplay.classList.add("success");
         } else {
             checkBtn.style.display = "none";
